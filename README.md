@@ -1,31 +1,29 @@
-# Installation
+## Installation
 
 To run this application on your local machine, please follow these steps:
 
-Clone this repository using the following command: https://github.com/ayush2342/Hospital-API.git
+* Install the required dependencies using the following command: `$ npm install`
 
-Install the required dependencies using the following command: $ npm install
+* Start the application using the following command: `$ npm start`
 
-Start the application using the following command: $ npm start
+* Open the application in your postman app by visiting the following URL: `http://localhost:8000`
 
-Open the application in your postman app by visiting the following URL: http://localhost:8000
+### Features:
 
-Features:
+There can be 2 types of Users:
 
-- There can be 2 types of Users
+* Doctors
 
-1. Doctors
+* Patients
 
-2. Patients
-
-- Doctors can log in
-- Each time a patient visits, the doctor will follow 2 steps
+> Doctors can log in
+> Each time a patient visits, the doctor will follow 2 steps
  
 1. Register the patient in the app (using phone number, if the patient already exists, just
 return the patient info in the API)
 
 2. After the checkup, create a Report
-- Patient Report will have the following fields
+* Patient Report will have the following fields
 
 1. Created by doctor
 
@@ -37,9 +35,9 @@ Positive-Admit]
 
 Routes:
 
-- /doctors/register → with username and password
-- /doctors/login → returns the JWT to be used
-- /patients/register
-- /patients/:id/create_report
-- /patients/:id/all_reports → List all the reports of a patient oldest to latest
-- /reports/:status → List all the reports of all the patients filtered by a specific status
+* /doctors/register → with username and password
+* /doctors/login → returns the JWT to be used
+* /patients/register
+* /patients/:id/create_report
+* /patients/:id/all_reports → List all the reports of a patient oldest to latest
+* /reports/:status → List all the reports of all the patients filtered by a specific status
