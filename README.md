@@ -39,12 +39,12 @@ return the patient info in the API)
 2. After the checkup, create a Report
 * Patient Report will have the following fields:
 
-|──Created by doctor
-|
-|──Status - Can be either of: [Negative, Travelled-Quarantine, Symptoms-Quarantine,
+1. Created by doctor
+
+2. Status - Can be either of: [Negative, Travelled-Quarantine, Symptoms-Quarantine,
 Positive-Admit]
-|
-|──Date
+
+3. Date
 
 
 Routes:
