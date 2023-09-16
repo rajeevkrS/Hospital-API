@@ -3,17 +3,21 @@ const mongoose = require('mongoose');
 const reportSchema = new mongoose.Schema({
   createdByDoctor: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'Doctor',
   },
   patient: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'Patient',
   },
   status: {
     type:String,
     require:true,
-    enum:['Negative', 'Travelled-Quarantine', 'Symptoms-Quarantine',
-        'Positive-Admit']
+    enum:[
+      'Negative', 
+      'Travelled-Quarantine', 
+      'Symptoms-Quarantine',
+      'Positive-Admit'
+    ]
   },
   date:{
     type: Date,

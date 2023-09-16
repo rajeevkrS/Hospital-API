@@ -1,27 +1,27 @@
-const User = require('../models/user')
+
+const Doctor = require('../models/doctor');
 const jwt = require('jsonwebtoken');
 
 // Creating Doctor
 module.exports.create = async function(req,res){
     try {
     
-        let user = await User.findOne({username:req.body.username});
+        let user = await Doctor.findOne({username:req.body.username});
 
         if(user){
             return res.status(409).json({
-                message: 'UserName Already Exists',
+                message: 'Doctor Already Exists',
             });
         }
 
-        user = await User.create({
+        user = await Doctor.create({
             username: req.body.username,
             password: req.body.password,
             name: req.body.name,
-            type:'Doctor'
         });
 
         return res.status(201).json({
-            message: 'User created successfully',
+            message: 'Doctor created successfully',
         });
     } 
     catch (error) {
@@ -36,7 +36,7 @@ module.exports.create = async function(req,res){
 module.exports.createSession = async function (req, res) {
 
     try {
-        let user = await User.findOne({ username: req.body.username });
+        let user = await Doctor.findOne({ username: req.body.username });
 
         if (!user || user.password != req.body.password) {
             return res.status(422).json({

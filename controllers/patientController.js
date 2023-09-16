@@ -1,28 +1,27 @@
 
 const Report = require('../models/reports');
-const User = require('../models/user')
+const Patient = require('../models/patient');
+
 
 // Patient Registeration 
 module.exports.register = async function(req,res)
 {
     try {
         
-        let user = await User.findOne({username:req.body.number});
+        let user = await Patient.findOne({number:req.body.number});
 
         if(user){
             return res.status(200).json({
-                message: 'User Already Registered',
+                message: 'Patient Already Registered',
                 data: {
                     user:user
                 }
             });
         }
 
-        user = await User.create({
-            username: req.body.number,
+        user = await Patient.create({
+            number: req.body.number,
             name: req.body.name,
-            password:'12345',
-            type:'Patient'
         });
 
         return res.status(201).json({
@@ -42,7 +41,7 @@ module.exports.register = async function(req,res)
 module.exports.createReport = async function(req,res){
     try {
         
-        const user = await User.findById(req.params.id)
+        const user = await Patient.findById(req.params.id)
 
         if(!user){
             return res.status(422).json({
@@ -100,7 +99,7 @@ module.exports.patientReports = async function(req,res){
           });
 
         return res.status(200).json({
-            message: `List of Reports of User with id -  ${req.params.id}`,
+            message: `List of Reports of Patient with id - ${req.params.id}`,
             reports:reportData    
         });
     } 
